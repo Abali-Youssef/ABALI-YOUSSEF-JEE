@@ -9,9 +9,9 @@ public class Presentation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-IDao id = new IDaoImp();
-//IDao idV2 = new IDaoImpV2();
-IMetierImp im = new IMetierImp(id);
+//IDao id = new IDaoImp();
+IDao idV2 = new IDaoImpV2();
+IMetierImp im = new IMetierImp(idV2);
 //im.setIdao(id);
 System.out.println(im.calcul());
 	}

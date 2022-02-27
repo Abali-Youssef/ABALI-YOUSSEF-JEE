@@ -10,5 +10,4 @@ public class IDaoImp implements IDao {
 		System.out.println("version n°1 Idao ");
 		return Math.PI*5*Math.pow(Math.PI, 6);
 	}
-
 }

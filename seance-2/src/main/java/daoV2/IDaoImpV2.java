@@ -1,5 +1,7 @@
 package daoV2;
 
+import org.springframework.stereotype.Component;
+
 import dao.IDao;
 
 public class IDaoImpV2 implements IDao {
