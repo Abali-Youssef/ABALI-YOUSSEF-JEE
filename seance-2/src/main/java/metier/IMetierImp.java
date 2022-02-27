@@ -6,10 +6,14 @@ import org.springframework.stereotype.Component;
 import dao.IDao;
 @Component("metier")
 public class IMetierImp implements IMetier {
-@Autowired	
+
  private IDao idao;
 	
 	
+	public IMetierImp(IDao idao) {
+	super();
+	this.idao = idao;
+}
 	public double calcul() {
 		return idao.getData()*Math.PI/3;
 	}

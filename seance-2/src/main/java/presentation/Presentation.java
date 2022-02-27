@@ -11,8 +11,8 @@ public class Presentation {
 		// TODO Auto-generated method stub
 IDao id = new IDaoImp();
 //IDao idV2 = new IDaoImpV2();
-IMetierImp im = new IMetierImp();
-im.setIdao(id);
+IMetierImp im = new IMetierImp(id);
+//im.setIdao(id);
 System.out.println(im.calcul());
 	}
 

@@ -5,6 +5,6 @@
 
 <bean id="dao" class="dao.IDaoImp"></bean>
 <bean id="metier" class="metier.IMetierImp">
-    <property name="idao" ref="dao"></property>
+    <constructor-arg ref="dao"></constructor-arg>
 </bean>
 </beans>
