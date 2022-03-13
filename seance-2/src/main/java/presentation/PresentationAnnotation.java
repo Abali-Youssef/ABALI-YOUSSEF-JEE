@@ -11,7 +11,6 @@ public class PresentationAnnotation {
 		ApplicationContext context=new AnnotationConfigApplicationContext( "dao","metier","daoV2"); 
 		IMetier metier = (IMetier) context.getBean("metier");
 		System.out.println(metier.calcul());
-		
 	}
 
 }
