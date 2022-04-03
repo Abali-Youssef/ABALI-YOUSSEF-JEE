@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
 
 <head>
     <meta charset="UTF-8">
@@ -10,12 +11,15 @@
     <title>Document</title>
 </head>
 <body>
-<h1>
-    listes des patients
-</h1>
+<div layout:fragment="content1">
 <div class="container">
     <div class="card">
         <div class="card-header">Liste des patients</div>
+        <form method="get" th:action="@{index}">
+            <label>Key</label>
+            <input type="text" name="key" th:value="${key}">
+            <button type="submit" class="btn btn-primary">Chercher</button>
+        </form>
         <div class="card-body">
             <table class="table">
 
@@ -50,12 +54,8 @@
 
         </div>
     </div>
-    <form method="get" th:action="@{index}">
-        <label>Key</label>
-        <input type="text" name="key" th:value="${key}">
-        <button type="submit" class="btn btn-primary">Chercher</button>
-    </form>
-</div>
 
+</div>
+</div>
 </body>
 </html>
