@@ -10,10 +10,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.naming.Binding;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -49,8 +52,18 @@ public class PatientController {
         return "formpatients";
     }
     @PostMapping("/save")
-    public String save(Model model,Patient patient) {
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) return "formpatients";
         patientRepository.save(patient);
         return "formpatients";
+    }
+    @GetMapping("/edit")
+    public String edit(Model model,Long id) {
+       Patient patient = patientRepository.findById(id).orElse(null);
+        if(patient==null) throw new RuntimeException("Patient introuvable");
+        model.addAttribute(  "patient", patient);
+        return "editpatients";
+
+
     }
 }

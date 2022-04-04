@@ -15,7 +15,7 @@ public class PatientManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PatientManagementApplication.class, args);
 	}
-	@Bean
+	//@Bean
 	CommandLineRunner commandLineRunner (PatientRepository patientRepository){
 		return args -> {
 			patientRepository.save(
