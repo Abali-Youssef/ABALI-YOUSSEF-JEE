@@ -20,7 +20,7 @@ public class Test {
 		System.out.println(p.getDesignation());
 	}
 		System.out.println("--------------------");
-		System.out.println("Consulter les produits par mot clé");
+		System.out.println("Consulter les produits par mot cle");
 		List<Produit> prods2=dao.findByDesignation("P");
 		for(Produit p:prods2){
 		System.out.println(p.getDesignation());

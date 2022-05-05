@@ -23,14 +23,14 @@ public class ProduitDaoImpl implements IProduitDao{
 		transaction.begin();
 		try {
 
-		/* enregister le produit p dans la base de données */
+		/* enregister le produit p dans la base de donnees */
 		entityManager.persist(p);
 		/* Valider la transaction si tout se passe bien */
 
 		transaction.commit();
 
 		} catch (Exception e) {
-		/* Annuler la transaction en cas d’exception */
+		/* Annuler la transaction en cas d exception */
 
 		transaction.rollback();
 		e.printStackTrace();
