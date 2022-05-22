@@ -1,7 +1,7 @@
 package com.projet.digitalbanking.dtos;
 
+import com.projet.digitalbanking.enums.OperationType;
 import lombok.Data;
-import org.sid.ebankingbackend.enums.OperationType;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
 package com.projet.digitalbanking.dtos;
 
+import com.projet.digitalbanking.enums.AccountStatus;
 import lombok.Data;
-import org.sid.ebankingbackend.enums.AccountStatus;
 
 import java.util.Date;
 @Data
