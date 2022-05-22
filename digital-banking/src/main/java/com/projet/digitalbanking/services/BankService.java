@@ -1,9 +1,10 @@
 package com.projet.digitalbanking.services;
 
-import org.sid.ebankingbackend.entities.BankAccount;
-import org.sid.ebankingbackend.entities.CurrentAccount;
-import org.sid.ebankingbackend.entities.SavingAccount;
-import org.sid.ebankingbackend.repositories.BankAccountRepository;
+import com.projet.digitalbanking.entities.BankAccount;
+import com.projet.digitalbanking.entities.CurrentAccount;
+import com.projet.digitalbanking.entities.SavingAccount;
+import com.projet.digitalbanking.repositories.BankAccountRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

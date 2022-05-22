@@ -1,9 +1,9 @@
 package com.projet.digitalbanking.web;
 
-import org.sid.ebankingbackend.dtos.*;
-import org.sid.ebankingbackend.exceptions.BalanceNotSufficientException;
-import org.sid.ebankingbackend.exceptions.BankAccountNotFoundException;
-import org.sid.ebankingbackend.services.BankAccountService;
+import com.projet.digitalbanking.dtos.*;
+import com.projet.digitalbanking.exceptions.BalanceNotSufficientException;
+import com.projet.digitalbanking.exceptions.BankAccountNotFoundException;
+import com.projet.digitalbanking.services.BankAccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

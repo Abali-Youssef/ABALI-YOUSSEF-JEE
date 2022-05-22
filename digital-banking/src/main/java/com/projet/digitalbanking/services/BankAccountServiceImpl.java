@@ -1,17 +1,17 @@
 package com.projet.digitalbanking.services;
 
+import com.projet.digitalbanking.dtos.*;
+import com.projet.digitalbanking.entities.*;
+import com.projet.digitalbanking.enums.OperationType;
+import com.projet.digitalbanking.exceptions.BalanceNotSufficientException;
+import com.projet.digitalbanking.exceptions.BankAccountNotFoundException;
+import com.projet.digitalbanking.exceptions.CustomerNotFoundException;
+import com.projet.digitalbanking.mappers.BankAccountMapperImpl;
+import com.projet.digitalbanking.repositories.AccountOperationRepository;
+import com.projet.digitalbanking.repositories.BankAccountRepository;
+import com.projet.digitalbanking.repositories.CustomerRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.sid.ebankingbackend.dtos.*;
-import org.sid.ebankingbackend.entities.*;
-import org.sid.ebankingbackend.enums.OperationType;
-import org.sid.ebankingbackend.exceptions.BalanceNotSufficientException;
-import org.sid.ebankingbackend.exceptions.BankAccountNotFoundException;
-import org.sid.ebankingbackend.exceptions.CustomerNotFoundException;
-import org.sid.ebankingbackend.mappers.BankAccountMapperImpl;
-import org.sid.ebankingbackend.repositories.AccountOperationRepository;
-import org.sid.ebankingbackend.repositories.BankAccountRepository;
-import org.sid.ebankingbackend.repositories.CustomerRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

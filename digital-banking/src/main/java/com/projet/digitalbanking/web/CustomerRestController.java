@@ -1,10 +1,10 @@
 package com.projet.digitalbanking.web;
 
+import com.projet.digitalbanking.dtos.CustomerDTO;
+import com.projet.digitalbanking.exceptions.CustomerNotFoundException;
+import com.projet.digitalbanking.services.BankAccountService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.sid.ebankingbackend.dtos.CustomerDTO;
-import org.sid.ebankingbackend.exceptions.CustomerNotFoundException;
-import org.sid.ebankingbackend.services.BankAccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
