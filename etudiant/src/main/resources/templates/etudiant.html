@@ -13,13 +13,21 @@
 <body>
 <div layout:fragment="content1">
 <div class="container">
+    <br><br><br><br>
+    <form class="row g-3" method="get" th:action="@{/index}">
+
+        <div class="col-auto">
+            <label for="inputPassword2" class="visually-hidden" th:value="${key}">chercher</label>
+            <input type="text" name="key" class="form-control" id="inputPassword2" placeholder="chercher">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">chercher</button>
+        </div>
+    </form>
+
     <div class="card">
         <div class="card-header">Liste des patients</div>
-        <form method="get" th:action="@{user/index}">
-            <label>Key</label>
-            <input type="text" name="key" th:value="${key}">
-            <button type="submit" class="btn btn-primary">Chercher</button>
-        </form>
+
         <div class="card-body">
             <table class="table">
 
@@ -48,7 +56,7 @@
             <li th:each="page, status:${pages}">
                 <a th:class="${status.index==currentPage ? 'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}"
                    th:text="${status.index}"
-                   th:href="@{user/index(page=${status.index},key=${key})}"
+                   th:href="@{/index(page=${status.index},key=${key})}"
                 ></a>
             </li>
         </ul>

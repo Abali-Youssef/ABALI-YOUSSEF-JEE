@@ -1,0 +1,107 @@
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+  <div class="row">
+    <div>
+      <h2 class="fw-bold" style="padding-bottom: 20px;color: #1976d2">Comptes</h2>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="well search-result">
+        <form class="d-flex">
+          <input type="text" class="form-control" placeholder="Account id" #id>
+          <span class="input-group-btn">
+              <button (click)="handleSearchAccount(id.value)" class="btn" type="submit" style="height: 45px;background-color: #1976d2;color: white">
+                        <i class="glyphicon glyphicon-search"></i>Recherchez
+              </button>
+            </span>
+        </form>
+      </div>
+      <div class="well search-result" *ngIf="account != null">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-body">
+                <h6><b>Account id : </b>{{account?.id}}</h6>
+                <h6><b>Account balance : </b>{{account?.balance}}</h6>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Operations : </h5><br>
+                <table class="table">
+                  <thead>
+                  <th>ID</th><th>Date</th><th>Type</th><th>Amount</th>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let op of account.operationDtos">
+                    <td>{{op.id}}</td>
+                    <td>{{op.date | date : 'dd-MM-yyyy'}}</td>
+                    <td>{{op.operationType}}</td>
+                    <td class="text-end">{{op.amount | number : '1.2-2'}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <ul class="nav nav-pills d-flex align-content-center justify-content-center">
+                  <li *ngFor="let item of [].constructor(account.totalPages);let page=index">
+                    <a [ngClass]="page==currPage?'btn-primary':'btn-outline-primary'" (click)="gotoPage(page)" class="btn  ms-1 mt-1">{{page}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <div id="op">
+                  <select class="form-select" aria-label="Default select example" id="operationType" #operationType>
+                    <option value="credit" (click)="handleSelectOp(1)">Credit</option>
+                    <option value="debit" (click)="handleSelectOp(2)">Debit</option>
+                    <option value="transfer" (click)="handleSelectOp(3)">Transfer</option>
+                  </select><br>
+
+                  <div *ngIf="opNumber === 1 || opNumber === 2">
+                    <div class="mb-3">
+                      <label class="form-label">Amount :</label>
+                      <input type="number" class="form-control" #amount>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Description :</label>
+                      <input type="text" class="form-control" #desciption>
+                    </div>
+                    <div class="d-grid mb-3">
+                      <button class="btn btn-success" (click)="onSubmitOp(amount.value,desciption.value)">Save Operation</button>
+                    </div>
+                  </div>
+
+                    <div *ngIf="opNumber === 3">
+                      <div class="mb-3">
+                        <label class="form-label">Account Destination :</label>
+                        <input type="text" class="form-control" [(ngModel)]="dest" #destination>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Amount :</label>
+                        <input type="number" class="form-control" [(ngModel)]="amnt" #amount>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Description :</label>
+                        <input type="text" class="form-control" [(ngModel)]="desc" #desciption>
+                      </div>
+                      <div class="d-grid mb-3">
+                        <button class="btn btn-success" (click)="onSubmitOpT(destination.value, amount.value,desciption.value)">Save Operation</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

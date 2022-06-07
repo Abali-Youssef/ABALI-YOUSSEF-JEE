@@ -18,9 +18,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin();
-        http.authorizeRequests ().antMatchers( "/index").permitAll();
-        http.authorizeRequests ().antMatchers(  "/admin/**","/user/**").hasAuthority("ADMIN");
+        http.authorizeRequests ().antMatchers( "/").permitAll();
+        http.authorizeRequests ().antMatchers(  "/admin/**").hasAuthority("ADMIN");
         http.authorizeRequests().antMatchers(  "/user/**").hasAuthority("USER");
+        http.authorizeRequests().antMatchers("/webjars/**").permitAll();
         http.authorizeRequests ().anyRequest ().authenticated();
         http.exceptionHandling().accessDeniedPage ("/403");
 
